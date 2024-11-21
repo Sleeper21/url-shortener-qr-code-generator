@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortener and Qr Code Generator</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h3> <%- shortUrl %> </h3>
+    <%  if (locals) { %>
+        <h1 id="title"> Shorten Your URL and receive a Qr Code </h1>
+    <h2 id="sub-title">shortened Url will always start with: "https://spoo.me/"</h2>
+
+    <div class="result-container">
+        <div class="qr-code-container">
+
+        </div>
+        <div class="short-url-container">
+            <p>Here is your URL shortened</p>
+            <h3> <%- shortUrl %> </h3>
+        </div>
+    </div>
+    <% } else { %>
+        <h1>Nothing</h1>
+    <% } %>
+
+    
+
+</body>
+</html>
