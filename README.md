@@ -1,6 +1,8 @@
-Practice project
-A Url shortener with a qr code generator
-<bold>The short URL can be costumed by the user with any specific word, number, letters and numbers.</bold>
+Practice project.
+
+A Url shortener with a qr code generator.
+
+The short URL can be costumed by the user with any specific word, number, letters and numbers.
 
 ![land page preview](public/images/screenshot1.png)
 
