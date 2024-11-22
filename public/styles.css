@@ -119,8 +119,9 @@ input:active{
 
 .short-url{
     display: flex;
+    width: 550px;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding: 2rem 1rem;
     border: 7px solid grey;
     border-radius: 5px;
