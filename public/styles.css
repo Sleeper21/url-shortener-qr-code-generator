@@ -1,3 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 body{
-    background: grey;
+    background: rgb(105,171,135);
+    background: radial-gradient(circle, rgba(105,171,135,1) 0%, rgba(147,145,145,1) 100%);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.5rem .5rem 13rem 0.5rem;
+}
+
+#title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.75rem;
+    padding: 2rem .5rem 0 .5rem;
+}
+
+#sub-title{
+    font-size: 1.15rem;
+    text-align: center;
+    padding: 0 .5rem;
+    color: rgb(37, 37, 37);
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 5rem 1.5rem 5rem 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4.5rem;
+}
+
+.rule{
+    font-size: 1rem;
+}
+
+.url-input, .alias-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.alias{
+    font-size: 1.5rem;
+}
+
+input {
+    width: 550px;
+    height: 50px;
+    border: none;
+    background-color: rgba(147, 148, 148, 0.411);
+    color: black;
+    padding: .5rem 1rem ;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    font-size: 1.3rem;
+}
+
+
+input:active{
+    border: 3px solid blue;
+}
+
+.btn {
+    border: none;
+    text-decoration: none;
+    padding: .75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 5px black;
+    background-color: aliceblue;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background-color: rgb(205, 211, 216);
+    box-shadow: 1px 1px 5px black;
+}
+
+.qr-code-title{
+    font-size: 1.5rem;
+}
+
+.short-subtitle{
+    font-size: 1.3rem;
+}
+
+.magic{
+    text-align: center;
+    font-weight: 600;
+    font-size: 5rem;
+    padding: 2rem .5rem 0 .5rem;
+}
+
+.result-container{
+    gap: 4.5rem;
+    text-align: center;
+}
+
+.short-url{
+    display: flex;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 2rem 1rem;
+    border: 7px solid grey;
+    border-radius: 5px;
+    margin-bottom: 1.2rem;
+}
+
+.img {
+    padding: 1rem ;
+}
+
+.copy-img:hover{
+    cursor: pointer;
+}
+
+.legend{
+    text-decoration: none;
+    font-style: normal;
+    font-size: 1rem;
+    color: grey;
+}
+
+.copy-message{
+    font-size: 1.5rem;
 }

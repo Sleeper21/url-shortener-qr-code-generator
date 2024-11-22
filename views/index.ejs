@@ -12,16 +12,32 @@
     <h1 id="title"> Shorten Your URL and receive a Qr Code </h1>
     <h2 id="sub-title">shortened Url will always start with: "https://spoo.me/"</h2>
 
-    <div class="form-container">
-        <form id="my-form" method="post" action="/submit">
-            <label for="longUrl">Insert your URL</label>
-            <input type="url" name="longUrl" id="longUrl" placeholder=" https:// " required>
+    <div class="container">
+        <form class="form" id="my-form" method="post" action="/submit">
+            <div class="url-input">
+                <label for="longUrl">Insert your URL</label>
+                <p class="rule"> ( must contain prefix " https:// " )</p>
+                <input type="url" name="longUrl" id="longUrl" placeholder=" https:// " autofocus required>
+            </div>            
+            <div class="alias-input">
+                <label for="alias" class="alias">Any specific words/numbers to include in the short Url? (optional)</label>
+                <input type="text" name="alias" id="alias" placeholder="Max 14 characters" max="14">
+            </div>            
 
-            <label for="alias">Type any specific words/characters to include in the shortened Url</label>
-            <input type="text" name="alias" id="alias" placeholder="Optional">
-
-            <button type="submit" id="submit-btn">Get URL</button>
+            <button type="submit" id="submit-btn" class="btn">Get Url</button>
         </form>
+
+        <% if ( locals.errorMessage === "Alias already exists" ) { %>
+
+            <h3 id="error" style="color: rgb(172, 3, 3);"> Error: </h3>
+            <h4 id="error-msg">" Url already exists. Try a different one. "</h4>
+
+        <% } else if ( locals.errorMessage === "Invalid Alias" ){ %>
+
+            <h3 id="error" style="color: rgb(172, 3, 3);"> Error: </h3>
+            <h4 id="error-msg"> "Specific word not valid. Cannot contain special characters. Try again."</h4>
+
+        <% } %>
     </div>
 
 </body>

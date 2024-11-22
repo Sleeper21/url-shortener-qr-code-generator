@@ -8,25 +8,89 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h3> <%- shortUrl %> </h3>
+    
     <%  if (locals) { %>
-        <h1 id="title"> Shorten Your URL and receive a Qr Code </h1>
-    <h2 id="sub-title">shortened Url will always start with: "https://spoo.me/"</h2>
 
-    <div class="result-container">
-        <div class="qr-code-container">
+        <h1 class="magic"> Magic! </h1>
 
-        </div>
+    <div class="container result-container">
+        
         <div class="short-url-container">
-            <p>Here is your URL shortened</p>
-            <h3> <%- shortUrl %> </h3>
+            <p class="short-subtitle">Here is your URL shortened</p>
+            <input type="text" id="final-url" class="short-url" value="<%- shortUrl %>" readonly>
+            
+            <img id="copy-icon" class="copy-img" src="/images/copy.png" width="50px" height="50px" alt="copy to clipboard">
+            <legend id="legend" class="legend">copy to clipboard</legend>
+            <p id="copy-message" class="copy-message"></p>
         </div>
+
+        <div class="qr-code-container">
+            <h2 class="qr-code-title">QR Code for your Url</h2>
+
+            <img class="img" src=" <%- qrCodeUrl %> " alt="qrCode">
+
+        </div>
+
+        <form action="/try-again" method="get">
+            <button class="btn try-again-btn">Create another one</button>
+        </form>
+
     </div>
+
     <% } else { %>
-        <h1>Nothing</h1>
+        <h1>Error 404 . Content not found</h1>
+        <button id="try-again-btn" class="btn" formaction="/try-again" type="submit">Try again</button>
     <% } %>
 
     
+<script>
+    // Copy shortened Url to clipboard
+    const copy = document.getElementById("copy-icon");
+    copy.addEventListener("click", copyToClipboard);
+
+    function copyToClipboard(){
+        let copyText = document.getElementById("final-url");
+
+        //Select the text field
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
+
+        // Try to copy the text on the textfield
+        try {
+            navigator.clipboard.writeText(copyText.value);
+            showCopyMessage(true); // If copy was successful
+
+        } catch (error) {
+            showCopyMessage(false);
+        };       
+    }
+
+    function showCopyMessage(success){
+        let copyMessageElement = document.getElementById("copy-message");
+        let legendElement = document.getElementById("legend");
+
+        if(success){
+
+            copyMessageElement.style.color = "green";
+            copyMessageElement.textContent = "Copied!";
+            legendElement.style.display = "none";
+            
+        } else {            
+            copyMessageElement.style.color = "red";
+            copyMessageElement.textContent = "Failed to Copy";
+            legendElement.style.display = "none";
+        };
+
+        copyMessageElement.style.display = "block";
+
+        // Remove copy Message after 3 seconds
+        setTimeout(() => {
+            copyMessageElement.style.display = "none";
+            legendElement.style.display = "block";
+
+        }, 3000);
+    }
+</script>
 
 </body>
 </html>
